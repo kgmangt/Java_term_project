@@ -11,3 +11,12 @@ The concept is simple: **Enhance your weapons, sell them, and stack your profits
 
 #### Goal
 Keep pushing your luck until you forge the ultimate, "shiny" weapon at level 12!
+
+
+
+
+## 📜 Credits
+
+Weapon icons provided by [Game-icons.net (licensed under CC BY 3.0)](https://unsplash.com/)
+
+thanks for giving me insane quallity of picture.
