@@ -10,4 +10,4 @@ The concept is simple: **Enhance your weapons, sell them, and stack your profits
 * **The Rewards:** Use the money you’ve earned from your successful enhancements to buy better items.
 
 #### Goal
-Keep pushing your luck until you forge the ultimate, "shiny" weapon at level 30!
+Keep pushing your luck until you forge the ultimate, "shiny" weapon at level 12!
