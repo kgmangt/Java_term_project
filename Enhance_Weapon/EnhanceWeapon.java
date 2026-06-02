@@ -7,24 +7,24 @@ public class EnhanceWeapon extends JFrame {
     // 저장할 데이터
     String[] WeaponName = {" level 0 : 야구빠따", " level 1 : 나무 검","level 2 : 철 검","level 3 : 낡고 오래된 엽총",
     "level 4 : 기관단총","level 5 : 기관단총 V2 ","level 6 : 81mm km29a1","level 7 : 시즈 탱크", "level 8 : TANK V2","level 9 : 중거리 지대공 미사일"
-    ,"level 10 : 이순신 함","level 11 : 야마토 포 ","level 12 : ", "level 13 : "
+    ,"level 10 : 이순신 함","level 11 : 히페리온 ","level 12 : 캐리어", "<html>축하드립니다!! 클리어 !!<font color = 'blue'>길동이"
 
     };
     String userName = "";
     int userAge = 0;
-    int money = 1000000000; 
+    int money = 990000000; 
     int level = 0;
     int[] EnhancePrice = { 100, 100, 100, 300, 500,
                                    1000, 1500, 10000, 20000, 50000,
-                                   70000, 100000,999999999
+                                   70000, 1000000,999999999,041206
                                   };
             int[] SellingPrice = { 0, 50, 150, 400, 800,
-                                   2200, 5000,35000,100000, 500000 ,
-                                   1000000, 10000000, 999999999
+                                   2200, 5000,35000,100000, 250000 ,
+                                   490000, 10000000, 999999999,8282
                                  };  
             int[] rates = {100, 98, 95, 90, 80,
                             70, 60, 50, 40, 30,
-                            15, 5 , 1
+                            15, 5 , 100, 0
                           }; // 인덱스 0 = 1단계 확률
  
     // 상단 정보 레이블
@@ -112,14 +112,19 @@ public class EnhanceWeapon extends JFrame {
         JButton Upgrade_Percent = new JButton("확률 업(500,000원)");
         Upgrade_Percent.setBounds(650, 850, 200, 60);
         add(Upgrade_Percent);
-        Upgrade_Percent.addActionListener(e -> { // 강화하기 버튼 클릭 시
+        Upgrade_Percent.addActionListener(e -> { //확률업 버튼 누를시
+          if(level == 13) {
+            Upgrade_Percent.setEnabled(false); // 13레벨에 도달하면 확률업 버튼을 회색으로 변하게 하여 못 누르게 바꾸었습니다.
+           lblResult.setText("게임 클리어!!");
+            return;
+          }
         if(money < 500000) {
           lblResult.setText("<html><font color = 'red'>돈이 부족합니다.</font></html>");
           return ;
         }
         else{
           money -= 500000;
-          for(int i = 0 ; i < rates.length ; i++){
+          for(int i = 0 ; i < rates.length -2 ; i++){
             rates[i] += 2;
           }
             lblLevel.setText("현재 강화 레벨: +" + level);
@@ -144,6 +149,11 @@ public class EnhanceWeapon extends JFrame {
         btnSelling.setBounds(1150, 530, 200, 60);
         add(btnSelling);
         btnSelling.addActionListener(e -> { //판매 버튼 클릭 시 
+           if(level == 13) {
+           btnSelling.setEnabled(false); // 13레벨에 도달하면 판매 버튼을 회색으로 변하게 하여 못 누르게 바꾸었습니다.
+           lblResult.setText("게임 클리어!!");
+           return;
+          }
           money += SellingPrice[level];
           level = 0;
            lblLevel.setText("현재 강화 레벨: +" + level);
@@ -157,6 +167,11 @@ public class EnhanceWeapon extends JFrame {
                   //ai도움을 받아 label에는 html이 적용이 된다는 것을 알게되었고 특정부분만 색을 입힐 수 있게 만들어 보았습니다.
         });
         btnEnhance.addActionListener(e -> { // 강화하기 버튼 클릭 시
+           if(level == 13) {
+           btnEnhance.setEnabled(false); // 13레벨에 도달하면 강화 버튼을 회색으로 변하게 하여 못 누르게 바꾸었습니다.
+           lblResult.setText("게임 클리어!!");
+           return;
+          }
                                 if(money<EnhancePrice[level]){
                                    lblLevel.setText("돈이 부족합니다!");
                                   return;
