@@ -12,7 +12,7 @@ public class EnhanceWeapon extends JFrame {
     };
     String userName = "";
     int userAge = 0;
-    int money = 990000000; 
+    int money = 10000; 
     int level = 0;
     int[] EnhancePrice = { 100, 100, 100, 300, 500,
                                    1000, 1500, 10000, 20000, 50000,
@@ -24,8 +24,8 @@ public class EnhanceWeapon extends JFrame {
                                  };  
             int[] rates = {100, 98, 95, 90, 80,
                             70, 60, 50, 40, 30,
-                            15, 5 , 100, 0
-                          }; // 인덱스 0 = 1단계 확률
+                            15, 5 , 25, 0
+                          }; // 각 단계별 확률 / 100= 100% 98 = 98% 12단계에서는 확률 업을 아무리 해도 25퍼센트 고정으로 해놨습니다.
  
     // 상단 정보 레이블
     JLabel lblInfo;
