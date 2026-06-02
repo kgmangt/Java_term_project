@@ -6,12 +6,13 @@ import javax.swing.*;
 public class EnhanceWeapon extends JFrame {
     // 저장할 데이터
     String[] WeaponName = {" level 0 : 야구빠따", " level 1 : 나무 검","level 2 : 철 검","level 3 : 낡고 오래된 엽총",
-    "level 4 : K2","level 5 : K2C1","level 6 : 81mm km29a1","level 7 : 시즈 탱크", "level 8 : "
+    "level 4 : 기관단총","level 5 : 기관단총 V2 ","level 6 : 81mm km29a1","level 7 : 시즈 탱크", "level 8 : TANK V2","level 9 : 중거리 지대공 미사일"
+    ,"level 10 : 이순신 함","level 11 : 야마토 포 ","level 12 : ", "level 13 : "
 
     };
     String userName = "";
     int userAge = 0;
-    int money = 10000;
+    int money = 1000000000; 
     int level = 0;
     int[] EnhancePrice = { 100, 100, 100, 300, 500,
                                    1000, 1500, 10000, 20000, 50000,
@@ -73,6 +74,7 @@ public class EnhanceWeapon extends JFrame {
     }
  
     private void setupGameUI() {
+      
         //  상단: 유저 정보 / 돈 / 레벨  
         lblInfo = new JLabel("유저: " + userName + "   |   골드: " + money + "   |   강화단계: +" + level);
         lblInfo.setFont(new Font("맑은 고딕", Font.BOLD, 20));
@@ -102,12 +104,38 @@ public class EnhanceWeapon extends JFrame {
         PercentLevel.setBounds(1150, 200, 350, 50);
         add(PercentLevel);
 
-        //  오른쪽: 강화 결과 메시지 
-        JLabel lblResult = new JLabel(" ");
+        //  오른쪽: 밑에 뜨는 문구
+        JLabel lblResult = new JLabel(" 강화 비용 : "+EnhancePrice[level]+" 판매 시 : "+SellingPrice[level]);
         lblResult.setFont(new Font("맑은 고딕", Font.BOLD, 18));
         lblResult.setBounds(1150, 370, 350, 40);
         add(lblResult);
- 
+        JButton Upgrade_Percent = new JButton("확률 업(500,000원)");
+        Upgrade_Percent.setBounds(650, 850, 200, 60);
+        add(Upgrade_Percent);
+        Upgrade_Percent.addActionListener(e -> { // 강화하기 버튼 클릭 시
+        if(money < 500000) {
+          lblResult.setText("<html><font color = 'red'>돈이 부족합니다.</font></html>");
+          return ;
+        }
+        else{
+          money -= 500000;
+          for(int i = 0 ; i < rates.length ; i++){
+            rates[i] += 2;
+          }
+            lblLevel.setText("현재 강화 레벨: +" + level);
+            lblInfo.setText(("유저: " + userName + "   |   골드: " + money + "   |   현재 단계: +" + level));
+            PercentLevel.setText(("현재 강화 확률: "+rates[level]+"%"));
+            Image newImg = new ImageIcon("image/level" + level + ".png").getImage();
+          newImg = newImg.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
+          imgLabel.setIcon(new ImageIcon(newImg));
+            lblResult.setText("<html> 강화 비용 : " + EnhancePrice[level] + 
+                  "  판매 시 : <font color='red'>" + SellingPrice[level] + "</font></html>");
+        }
+        });
+
+
+
+
         // 오른쪽: 강화 버튼 
         JButton btnEnhance = new JButton("강화 시도!");
         btnEnhance.setBounds(1150, 430, 200, 60);
@@ -115,14 +143,20 @@ public class EnhanceWeapon extends JFrame {
         JButton btnSelling = new JButton("판매 하기!");
         btnSelling.setBounds(1150, 530, 200, 60);
         add(btnSelling);
-        btnSelling.addActionListener(e -> {
+        btnSelling.addActionListener(e -> { //판매 버튼 클릭 시 
           money += SellingPrice[level];
           level = 0;
            lblLevel.setText("현재 강화 레벨: +" + level);
-            lblInfo.setText(("유저: " + userName + "   |   골드: " + money + "   |   현재 단계: +" + level));
-            PercentLevel.setText(("현재 강화 확률: "+rates[level]+"%"));
+           PercentLevel.setText(("현재 강화 확률: "+rates[level]+"%"));
+           Image newImg = new ImageIcon("image/level" + level + ".png").getImage();
+           newImg = newImg.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
+           lblInfo.setText(("유저: " + userName + "   |   골드: " + money + "   |   현재 단계: +" + level));
+          imgLabel.setIcon(new ImageIcon(newImg));
+            lblResult.setText("<html> 강화 비용 : " + EnhancePrice[level] + 
+                  "  판매 시 : <font color='red'>" + SellingPrice[level] + "</font></html>");
+                  //ai도움을 받아 label에는 html이 적용이 된다는 것을 알게되었고 특정부분만 색을 입힐 수 있게 만들어 보았습니다.
         });
-        btnEnhance.addActionListener(e -> {
+        btnEnhance.addActionListener(e -> { // 강화하기 버튼 클릭 시
                                 if(money<EnhancePrice[level]){
                                    lblLevel.setText("돈이 부족합니다!");
                                   return;
@@ -138,7 +172,9 @@ public class EnhanceWeapon extends JFrame {
           Image newImg = new ImageIcon("image/level" + level + ".png").getImage();
           newImg = newImg.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
           imgLabel.setIcon(new ImageIcon(newImg));
-          });
+        lblResult.setText("<html> 강화 비용 : " + EnhancePrice[level] + 
+                  "  판매 시 : <font color='red'>" + SellingPrice[level] + "</font></html>");
+          });//ai도움을 받아 label에는 html이 적용이 된다는 것을 알게되었고 특정부분만 색을 입힐 수 있게 만들어 보았습니다.
     }
  
     private void showInputDialog() { // 시작전 사용자의 정보를 얻기위해 만든 창입니다.
@@ -155,7 +191,7 @@ public class EnhanceWeapon extends JFrame {
                 }
             }
         });
- 
+        
         UserInfo.add(new JLabel("이름 "));
         UserInfo.add(tfName);
         UserInfo.add(new JLabel("나이 "));
