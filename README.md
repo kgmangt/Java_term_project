@@ -32,22 +32,22 @@ java EnhanceWeapon
 - IDE : Visual Studio Code
 
 ### 📊 Enhancement Rates
-| Level | Success Rate |
-|-------|-------------|
-| 0 | 100% |
-| 1 | 98% |
-| 2 | 95% |
-| 3 | 90% |
-| 4 | 80% |
-| 5 | 70% |
-| 6 | 60% |
-| 7 | 50% |
-| 8 | 40% |
-| 9 | 30% |
-| 10 | 15% |
-| 11 | 5% |
-| 12 | 25% (fixed) | << even if you upgrade the chance, will be fixed to 25% at level 12 ! |
-| 13 | ???(try it) |
+| Level | Success Rate | Note |
+|-------|-------------|------|
+| 0 | 100% | |
+| 1 | 98% | |
+| 2 | 95% | |
+| 3 | 90% | |
+| 4 | 80% | |
+| 5 | 70% | |
+| 6 | 60% | |
+| 7 | 50% | |
+| 8 | 40% | |
+| 9 | 30% | |
+| 10 | 15% | |
+| 11 | 5% | |
+| 12 | 25% (fixed) | ⚠️ Even if you upgrade the chance, it will be fixed to 25% at level 12! |
+| 13 | ??? | 🔒 Try it yourself! |
 
 ## 📜 Credits
 * Weapon icons provided by [Game-icons.net (licensed under CC BY 3.0)](https://unsplash.com/)
