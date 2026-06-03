@@ -20,7 +20,7 @@ Can you discover what lies beyond Level 12? Keep upgrading to unveil the mystery
 6. Click **Chance Up (500,000 gold)** to increase your success rate
 7. Reach level 12 to clear the game!
 
-### ⚙️ How to Run
+### ⚙️ How to Run (need to it !! if u dont act it ,you can't see weapon Image)
 ```cmd
 cd Java_term_project
 javac EnhanceWeapon.java
