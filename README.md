@@ -47,6 +47,7 @@ java EnhanceWeapon
 | 10 | 15% |
 | 11 | 5% |
 | 12 | 25% (fixed) | << even if you upgrade the chance, will be fixed to 25% at level 12 !
+| 13 | ???(try it) |
 
 ## 📜 Credits
 * Weapon icons provided by [Game-icons.net (licensed under CC BY 3.0)](https://unsplash.com/)
